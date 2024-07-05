@@ -154,10 +154,14 @@
         <div>
             <section class="product-list-section list">
                 <div class="item" th:each="product: ${products}">
-                    <div class="item-img" th:style="|background-image: url('data:image/*;base64, ${product.images[0].url}')|">
-                    </div>
+                    <a th:href="|/product/${product.no}|" class="item-img" th:style="|background-image: url('data:image/*;base64, ${product.images[0].url}')|">
+                    </a>
                     <span class="category">Shoes</span>
-                    <h4 th:text="${product.name}">클라우드 폼 무브 라운저</h4>
+                    <h4>
+                        <a th:href="|/product/${product.no}|"  th:text="${product.name}">
+                        클라우드 폼 무브 라운저
+                        </a>
+                    </h4>
                     <span class="price" th:text="|${#numbers.formatInteger(product.price,3,'COMMA')}원|">69,000원</span>
                     <i class="fa-regular fa-heart"></i>
                 </div>
