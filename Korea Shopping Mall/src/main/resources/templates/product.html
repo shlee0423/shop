@@ -16,30 +16,30 @@
     <div class="product-information-container">
         <section id="product-detail-section">
             <ul class="main-product-img-list">
-                <li class="img-container">
-                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/a/4/FS2RSG2152F_OWH.jpg?v=12')"></div>
+                <li class="img-container" th:each="image: ${product.images}">
+                    <div class="product-img" th:style="|background-image: url('data:image/*;base64,${image.url}')|"></div>
                 </li>
-                <li class="img-container">
-                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/b/4/FS2RSG2152F_OWH.jpg?v=12')"></div>
-                </li>
-                <li class="img-container">
-                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/c/4/FS2RSG2152F_OWH.jpg?v=12')"></div>
-                </li>
-                <li class="img-container">
-                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/d/4/FS2RSG2152F_OWH.jpg?v=12')"></div>
-                </li>
-                <li class="img-container">
-                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/e/4/FS2RSG2152F_OWH.jpg?v=12')"></div>
-                </li>
-                <li class="img-container">
-                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/f/4/FS2RSG2152F_OWH.jpg?v=12')"></div>
-                </li>
-                <li class="img-container">
-                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/g/4/FS2RSG2152F_OWH.jpg?v=12')"></div>
-                </li>
-                <li class="img-container">
-                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/h/4/FS2RSG2152F_OWH.jpg?v=12')"></div>
-                </li>
+<!--                <li class="img-container">-->
+<!--                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/b/4/FS2RSG2152F_OWH.jpg?v=12')"></div>-->
+<!--                </li>-->
+<!--                <li class="img-container">-->
+<!--                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/c/4/FS2RSG2152F_OWH.jpg?v=12')"></div>-->
+<!--                </li>-->
+<!--                <li class="img-container">-->
+<!--                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/d/4/FS2RSG2152F_OWH.jpg?v=12')"></div>-->
+<!--                </li>-->
+<!--                <li class="img-container">-->
+<!--                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/e/4/FS2RSG2152F_OWH.jpg?v=12')"></div>-->
+<!--                </li>-->
+<!--                <li class="img-container">-->
+<!--                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/f/4/FS2RSG2152F_OWH.jpg?v=12')"></div>-->
+<!--                </li>-->
+<!--                <li class="img-container">-->
+<!--                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/g/4/FS2RSG2152F_OWH.jpg?v=12')"></div>-->
+<!--                </li>-->
+<!--                <li class="img-container">-->
+<!--                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/h/4/FS2RSG2152F_OWH.jpg?v=12')"></div>-->
+<!--                </li>-->
             </ul>
 
             <div class="product-model-img-carousel">
