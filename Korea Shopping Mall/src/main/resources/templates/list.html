@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main-layout}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../public/public.css">
+    <link rel="stylesheet" href="../static/css/list.css" th:href="@{/css/list.css}">
+    <script src="https://kit.fontawesome.com/e2ac94e0a6.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<main layout:fragment="main">
+    <section class="filter-section">
+        <nav>
+            <a>MEN</a>
+            <a>신발</a>
+        </nav>
+
+        <div class="filter-container">
+            <button type="button" id="filter-on-off-btn">
+                <span>필터</span>
+                <i class="fa-solid fa-minus"></i>
+                <!--            <i class="fa-solid fa-plus"></i>-->
+            </button>
+
+            <div class="filter-select-container">
+                <label>
+                    <select>
+                        <option>신상품순</option>
+                        <option>판매순</option>
+                        <option>리뷰순</option>
+                        <option>낮은가격순</option>
+                        <option>높은가격순</option>
+                    </select>
+                </label>
+
+
+                <div class="product-list-view-select-container">
+                    <button id="list-view-btn"><i class="fa-solid fa-list"></i></button>
+                    <button id="grid-view-btn"><i class="fa-solid fa-grip"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-container">
+        <aside>
+            <div>
+                <ul class="category-list">
+                    <li active>
+                        <a href="#">전체</a>
+                        <span>182</span>
+                    </li>
+                    <li>
+                        <a href="#">라이프스타일</a>
+                        <span>182</span>
+                    </li>
+                    <li>
+                        <a href="#">헤리티지</a>
+                        <span>182</span>
+                    </li>
+                    <li>
+                        <a href="#">테니스</a>
+                        <span>182</span>
+                    </li>
+                    <li>
+                        <a href="#">러닝</a>
+                        <span>182</span>
+                    </li>
+                    <li>
+                        <a href="#">샌들/슬리퍼</a>
+                        <span>182</span>
+                    </li>
+                    <li>
+                        <a href="#">인터런</a>
+                        <span>182</span>
+                    </li>
+                    <li>
+                        <a href="#">레플리카</a>
+                        <span>182</span>
+                    </li>
+                    <li>
+                        <a href="#">에샤페</a>
+                        <span>182</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <button>
+                    <span>색상</span>
+                    <i class="fa-solid fa-caret-up"></i>
+                    <!--                <i class="fa-solid fa-caret-down"></i>-->
+                </button>
+                <ul class="color-list">
+                    <li class="beige"></li>
+                    <li class="black"></li>
+                    <li class="red"></li>
+                    <li class="blue"></li>
+                    <li class="green"></li>
+                    <li class="gray"></li>
+                    <li class="yellow"></li>
+                    <li class="white"></li>
+                    <li class="purple"></li>
+                </ul>
+            </div>
+            <div>
+                <button>
+                    <span>가격</span>
+                    <i class="fa-solid fa-caret-up"></i>
+                    <!--                <i class="fa-solid fa-caret-down"></i>-->
+                </button>
+                <ul class="price-list">
+                    <li>
+                        <label>
+                            <input type="checkbox">
+                            <span>39,000 이하</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox">
+                            <span>39,000~49,000</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox">
+                            <span>49,000~59,000</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox">
+                            <span>59,000~79,000</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox">
+                            <span>79,000 초과</span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+        </aside>
+
+        <div>
+            <section class="product-list-section list">
+                <div class="item" th:each="product: ${products}">
+                    <div class="item-img" th:style="|background-image: url('data:image/*;base64, ${product.images[0].url}')|">
+                    </div>
+                    <span class="category">Shoes</span>
+                    <h4 th:text="${product.name}">클라우드 폼 무브 라운저</h4>
+                    <span class="price" th:text="|${#numbers.formatInteger(product.price,3,'COMMA')}원|">69,000원</span>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+                <div class="item">
+                    <div class="item-img" style="background-image: url('https://assets.adidas.com/images/w_600,f_auto,q_auto/5ee89be58e27428fb20ebbe1f7fe7aa2_9366/Grey_ID6514_01_standard.jpg')">
+                    </div>
+                    <span class="category">Shoes</span>
+                    <h4>클라우드 폼 무브 라운저</h4>
+                    <span class="price">69,000원</span>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+<!--                <div class="item">-->
+<!--                    <div class="item-img" style="background-image: url('https://assets.adidas.com/images/w_600,f_auto,q_auto/5ee89be58e27428fb20ebbe1f7fe7aa2_9366/Grey_ID6514_01_standard.jpg')">-->
+<!--                    </div>-->
+<!--                    <span class="category">Shoes</span>-->
+<!--                    <h4>클라우드 폼 무브 라운저</h4>-->
+<!--                    <span class="price">69,000원</span>-->
+<!--                    <i class="fa-regular fa-heart"></i>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <div class="item-img" style="background-image: url('https://assets.adidas.com/images/w_600,f_auto,q_auto/5ee89be58e27428fb20ebbe1f7fe7aa2_9366/Grey_ID6514_01_standard.jpg')">-->
+<!--                    </div>-->
+<!--                    <span class="category">Shoes</span>-->
+<!--                    <h4>클라우드 폼 무브 라운저</h4>-->
+<!--                    <span class="price">69,000원</span>-->
+<!--                    <i class="fa-regular fa-heart"></i>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <div class="item-img" style="background-image: url('https://assets.adidas.com/images/w_600,f_auto,q_auto/5ee89be58e27428fb20ebbe1f7fe7aa2_9366/Grey_ID6514_01_standard.jpg')">-->
+<!--                    </div>-->
+<!--                    <span class="category">Shoes</span>-->
+<!--                    <h4>클라우드 폼 무브 라운저</h4>-->
+<!--                    <span class="price">69,000원</span>-->
+<!--                    <i class="fa-regular fa-heart"></i>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <div class="item-img" style="background-image: url('https://assets.adidas.com/images/w_600,f_auto,q_auto/5ee89be58e27428fb20ebbe1f7fe7aa2_9366/Grey_ID6514_01_standard.jpg')">-->
+<!--                    </div>-->
+<!--                    <span class="category">Shoes</span>-->
+<!--                    <h4>클라우드 폼 무브 라운저</h4>-->
+<!--                    <span class="price">69,000원</span>-->
+<!--                    <i class="fa-regular fa-heart"></i>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <div class="item-img" style="background-image: url('https://assets.adidas.com/images/w_600,f_auto,q_auto/5ee89be58e27428fb20ebbe1f7fe7aa2_9366/Grey_ID6514_01_standard.jpg')">-->
+<!--                    </div>-->
+<!--                    <span class="category">Shoes</span>-->
+<!--                    <h4>클라우드 폼 무브 라운저</h4>-->
+<!--                    <span class="price">69,000원</span>-->
+<!--                    <i class="fa-regular fa-heart"></i>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <div class="item-img" style="background-image: url('https://assets.adidas.com/images/w_600,f_auto,q_auto/5ee89be58e27428fb20ebbe1f7fe7aa2_9366/Grey_ID6514_01_standard.jpg')">-->
+<!--                    </div>-->
+<!--                    <span class="category">Shoes</span>-->
+<!--                    <h4>클라우드 폼 무브 라운저</h4>-->
+<!--                    <span class="price">69,000원</span>-->
+<!--                    <i class="fa-regular fa-heart"></i>-->
+<!--                </div>-->
+            </section>
+
+            <nav class="pagination-nav">
+                <ul class="pagination">
+                    <li><a href=""><i class="fa-solid fa-angle-left"></i></a></li>
+                    <li active=""><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">4</a></li>
+                    <li><a href=""><i class="fa-solid fa-angle-right"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+</main>
+</body>
+</html>

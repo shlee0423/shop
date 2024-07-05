@@ -20,4 +20,14 @@
             ON `P`.`no` = `PI`.`product_no`
         WHERE P.`no` = #{no}
     </select>
+    <select id="selectProducts" resultType="ProductDTO" resultMap="selectProductWithImage">
+        SELECT
+            P.`no` AS 'product_no',
+            PI.`no` AS 'image_no',
+            P.*, PI.*
+        FROM `product` P
+            INNER JOIN `product_img` PI
+            ON `P`.`no` = `PI`.`product_no`
+        LIMIT 60
+    </select>
 </mapper>

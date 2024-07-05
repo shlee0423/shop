@@ -16,7 +16,7 @@ public class FileService {
     @Autowired
     private ProductMapper productMapper;
 
-    private String path = "C:\\Users\\Administrator\\Desktop\\승훈이꺼\\images";
+    private String path = "C:\\Users\\Administrator\\Desktop\\승훈이꺼\\shop\\images";
 //    public FileDTO get_product_file(String uuid){
 //        File file = new File(path, uuid);
 //    }
