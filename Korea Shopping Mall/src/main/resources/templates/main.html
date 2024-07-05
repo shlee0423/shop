@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main-layout}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>KOREA NIKE</title>
+    <link rel="stylesheet" href="../static/css/main.css">
+    <script src="https://kit.fontawesome.com/d19fdaba43.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+    <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"></script>
+    <script src="../static/js/main-carousel.js" th:src="@{/js/main-carousel.js}" defer></script>
+    <script src="../static/js/main.js" th:src="@{/js/main.js}" defer></script>
+</head>
+<body>
+
+<main layout:fragment="main">
+    <section id="main-top-section" class="embla">
+        <ul class="embla__container">
+            <li class="embla__slide">
+                <video src="https://filacdn.styleship.com/filacontent2/data/ContentsFile/0325_FILA_SUMMER_01_SHORT.mp4" autoplay muted loop></video>
+            </li>
+            <li class="embla__slide">
+                <img src="https://filacdn.styleship.com/filacontent2/data/banner/img_M_top_COLD%20WAVE_d_240516_93.jpg" alt="#">
+            </li>
+        </ul>
+    </section>
+    <th:block th:text="${#authentication}">
+
+    </th:block>
+    <section id="main-popular-items-section">
+        <div class="popular-items-select-btn-div">
+            <button>신제품🎁</button>
+            <button>인기상품✨</button>
+            <button>베스트셀러💖</button>
+        </div>
+
+        <div class="popular-item-container">
+            <div class="item">
+                <div class="item-img" style="background-image: url('https://assets.adidas.com/images/w_600,f_auto,q_auto/5ee89be58e27428fb20ebbe1f7fe7aa2_9366/Grey_ID6514_01_standard.jpg')">
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="price">69,000원</span>
+                </div>
+                <h4>클라우드 폼 무브 라운저</h4>
+                <span class="category">Shoes</span>
+            </div>
+            <div class="item">
+                <div class="item-img" style="background-image: url('https://assets.adidas.com/images/w_600,f_auto,q_auto/5ee89be58e27428fb20ebbe1f7fe7aa2_9366/Grey_ID6514_01_standard.jpg')">
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="price">69,000원</span>
+                </div>
+                <h4>클라우드 폼 무브 라운저</h4>
+                <span class="category">Shoes</span>
+            </div>
+            <div class="item">
+                <div class="item-img" style="background-image: url('https://assets.adidas.com/images/w_600,f_auto,q_auto/5ee89be58e27428fb20ebbe1f7fe7aa2_9366/Grey_ID6514_01_standard.jpg')">
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="price">69,000원</span>
+                </div>
+                <h4>클라우드 폼 무브 라운저</h4>
+                <span class="category">Shoes</span>
+            </div>
+            <div class="item">
+                <div class="item-img" style="background-image: url('https://assets.adidas.com/images/w_600,f_auto,q_auto/5ee89be58e27428fb20ebbe1f7fe7aa2_9366/Grey_ID6514_01_standard.jpg')">
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="price">69,000원</span>
+                </div>
+                <h4>클라우드 폼 무브 라운저</h4>
+                <span class="category">Shoes</span>
+            </div>
+            <div class="item">
+                <div class="item-img" style="background-image: url('https://assets.adidas.com/images/w_600,f_auto,q_auto/5ee89be58e27428fb20ebbe1f7fe7aa2_9366/Grey_ID6514_01_standard.jpg')">
+                    <i class="fa-regular fa-heart"></i>
+                    <span class="price">69,000원</span>
+                </div>
+                <h4>클라우드 폼 무브 라운저</h4>
+                <span class="category">Shoes</span>
+            </div>
+        </div>
+
+    </section>
+    <section id="main-plus-life-section" class="embla">
+        <h2>추천 스타일</h2>
+        <div class="plus-life-container embla__viewport">
+            <div class="item embla__slide" style="background-image: url('https://filacdn.styleship.com/filacontent2/data/codi/O03_24.jpg')"></div>
+            <div class="item embla__slide" style="background-image: url('https://filacdn.styleship.com/filacontent2/data/codi/M02_80.jpg')"></div>
+            <div class="item embla__slide" style="background-image: url('https://filacdn.styleship.com/filacontent2/data/codi/S02_38.jpg')"></div>
+            <div class="item embla__slide" style="background-image: url('https://filacdn.styleship.com/filacontent2/data/codi/1_23.jpg')"></div>
+            <div class="item embla__slide" style="background-image: url('https://filacdn.styleship.com/filacontent2/data/codi/2_44.jpg')"></div>
+            <div class="item embla__slide" style="background-image: url('https://filacdn.styleship.com/filacontent2/data/codi/3_23.jpg')"></div>
+        </div>
+    </section>
+</main>
+
+
+</body>
+</html>

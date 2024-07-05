@@ -1,0 +1,286 @@
+@import "../css/public/public.css";
+
+
+
+.product-information-container{
+    display: flex;
+    position: relative;
+    padding: 30px 40px;
+}
+#product-info-aside{
+    display: flex;
+    position: sticky;
+    top: 0;
+    min-width: 30%;
+    max-width: 45%;
+    height: 100vw;
+}
+
+.product-info-section{
+    position: relative;
+    padding: 0 30px;
+    flex: 1;
+}
+
+.product-info-section .share-btn{
+    position: absolute;
+    right: 30px;
+}
+
+.category > li{
+    font-weight: 400;
+}
+.category > li:not(:last-child):after{
+    content: "|";
+    margin: 0 10px;
+}
+.product-info-section > h1{
+    margin: 25px 0;
+    font-size: var(--font-size-xxx-large);
+}
+.product-info-section > .price{
+    display: block;
+    font-weight: 600;
+    margin-bottom: 60px;
+}
+.product-info-section > .product-information{
+    display: block;
+    margin: 5px 0;
+    font-size: var(--font-size-small);
+    font-weight: 300;
+    color: var(--color-medium-gray);
+}
+.product-information-btn{
+    display: block;
+    margin-top: 15px;
+    color: var(--color-medium-gray);
+    text-decoration: underline;
+}
+
+/*********************************************************/
+.product-select-section{
+    padding: 0 10px;
+    width: 320px;
+    max-width: 50%;
+}
+.product-select-section .select-buttons{
+    margin-bottom: 15px;
+}
+.product-select-section .select-buttons > b{
+    display: block;
+    margin-bottom: 15px;
+}
+.product-select-section .select-buttons > button{
+    display: inline-block;
+    width: 60px;
+    border: 1px solid var(--color-weak-gray);
+    border-radius: 5px;
+    background-color: white;
+    font-size: var(--font-size-small);
+    font-weight: bold;
+    padding: 10px 1px;
+    cursor: pointer;
+    word-break:break-all;
+    /*white-space:nowrap;*/
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+}
+.amount-label{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    border: 1px solid var(--color-medium-gray);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.amount-label > button{
+    padding: 10px;
+    outline: none;
+    background-color: white;
+    border: none;
+    font-size: var(--font-size-medium);
+}
+.amount-label > input{
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    flex: 1;
+    outline: none;
+    border: none;
+    font-size: var(--font-size-medium);
+}
+.product-select-section .price{
+    display: flex;
+    margin: 15px 0;
+    justify-content: space-between;
+    font-size: var(--font-size-medium);
+}
+#buy-btn{
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: var(--font-size-xx-large);
+    background-color: rgb(0,41,101);
+    color: white;
+    cursor: pointer;
+}
+.product-additional-btns{
+    display: flex;
+    margin: 10px 0;
+}
+#heart-btn{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: var(--font-size-x-large);
+    color: var(--color-medium-gray);
+    background-color: white;
+    border: 1px solid var(--color-medium-gray);
+    border-radius: 50px;
+    cursor: pointer;
+}
+#cart-btn{
+    margin-left: 5px;
+    flex: 1;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 50px;
+    font-size: var(--font-size-x-large);
+    font-weight: bold;
+    background-color: white;
+}
+#cart-btn:hover{
+    background-color: rgb(0,41,101);
+    color: white;
+    transition: all 0.3s;
+}
+
+.product-review{
+    display: block;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 20px 0;
+    margin: 10px 0;
+}
+.product-review > h4{
+    display: inline-block;
+    margin-right: 10px;
+    font-size: var(--font-size-medium);
+    font-weight: normal;
+}
+.product-review > i{
+    float: right;
+    transition-duration: 0.2s;
+}
+
+
+
+
+
+
+
+
+
+/*********************************************************/
+#product-detail-section{
+    flex: 1;
+}
+.main-product-img-list{
+    display: grid;
+    grid-template-rows: repeat(4, 700px);
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+.main-product-img-list > li{
+    overflow: hidden;
+}
+.main-product-img-list > li:hover > div{
+    transform: scale(105%);
+}
+.main-product-img-list div{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    transition-duration: 0.3s;
+}
+
+/***************************************************/
+.product-model-img-carousel{
+    margin: 100px 0 0 0;
+    padding: 50px 0;
+    border-bottom: 1px solid var(--color-weak-gray);
+}
+.product-model-img-container{
+    display: flex;
+    justify-content: space-between;
+}
+.product-model-img-carousel > h3{
+    margin: 10px 0;
+    font-size: var(--font-size-xxx-large);
+    text-align: center;
+}
+.sub-product-img{
+    flex: 1;
+    margin-top: 50px;
+    text-align: center;
+}
+.sub-product-img > img{
+    width: 100%;
+    border-radius: 4px;
+}
+.product-model-img-select-btns{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    padding: 0 80px;
+}
+.product-model-img-select-btns > button{
+    box-sizing: content-box;
+    width: 150px;
+    aspect-ratio: 3 / 4;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: 1px solid black;
+}
+/******************************************/
+.fit-guide{
+    padding: 0 20px;
+    text-align: center;
+}
+.fit-guide > h2{
+    margin: 50px 0;
+    font-size: var(--font-size-xx-large);
+}
+.fit-box-container{
+    display: flex;
+}
+.fit-box-container > div{
+    margin: 0 10px;
+    flex: 1;
+    padding: 20px 10px;
+    color: var(--color-weak-gray);
+    border: 1px solid var(--color-weak-gray);
+    border-radius: 4px;
+}
+.fit-box-container > div > b{
+    display: block;
+    margin-bottom: 12px;
+}
+.fit-box-container > .regular{
+    border: 1px solid black;
+    color: black;
+}
+.fit-box-container > span{
+    font-size: var(--font-size-x-small);
+}

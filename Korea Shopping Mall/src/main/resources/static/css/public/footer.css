@@ -1,0 +1,62 @@
+/**********************************/
+footer{
+    margin: 0 auto;
+    background-color: rgb(238, 238, 238);
+    padding: 50px 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer #information-section > img{
+    width: 100px;
+}
+
+footer #information-section li {
+    margin: 20px 0;
+}
+footer #information-section li:after{
+    content: "|";
+    margin: 0 10px;
+}
+footer #information-section li:last-child:after{
+    content: unset;
+}
+footer #information-section p{
+    font-size: var(--font-size-small);
+    color: rgba(0,0,0,0.5);
+}
+footer > div{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 50px;
+}
+#sns-icon-section > a{
+    display: inline-block;
+    font-size: var(--font-size-large);
+    margin: 10px 10px 10px 0;
+}
+
+#developer-information-section > button{
+    font-size: var(--font-size-large);
+    border-radius: 20px;
+    margin: 10px 0;
+    padding: 4px 20px;
+    cursor: pointer;
+}
+#developer-information-section > button:hover{
+    background-color: rgb(0,41,101);
+    color: white;
+    transition: all 0.3s;
+}
+#developer-information-section > div{
+    margin: 10px 0;
+}
+#developer-information-section > div > span{
+    display: block;
+    font-size: var(--font-size-xxx-large);
+    font-weight: bold;
+}
+#developer-information-section > span{
+    font-size: var(--font-size-small);
+    color: rgba(0,0,0,0.4);
+}

@@ -1,0 +1,126 @@
+li{
+    display: inline-block;
+    list-style: none;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: white;
+    z-index: 99;
+}
+header > section{
+    padding: 0 40px;
+}
+#top-menu-section nav{
+    display: flex;
+    justify-content: right;
+}
+#top-menu-section a, button{
+    font-size: var(--font-size-small);
+}
+#top-menu-section a::after{
+    content: "|";
+    margin: 0 8px;
+}
+#top-menu-section form > button{
+    content: none;
+    background-color: white;
+    border: none;
+}
+#main-menu-section{
+    position: relative;
+    padding: 20px 0;
+}
+#main-menu-section > a{
+    display: flex;
+    width: 60px;
+    top: 0;
+    left: 40px;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+}
+#main-menu-nav{
+    display: inline-block;
+    width: 100%;
+    font-size: var(--font-size-x-large);
+    text-align: center;
+    font-weight: bold;
+}
+#main-menu-nav li{
+    margin: 0 10px;
+    padding: 4px 0;
+    cursor: pointer;
+    border-bottom: 3px solid white;
+}
+#main-menu-nav li:hover{
+    border-bottom: 3px solid black;
+}
+#menu-icon-nav {
+    display: flex;
+    top: 0;
+    right: 40px;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    /*transform: translateY(-50%);*/
+    font-size: var(--font-size-large);
+}
+
+#menu-icon-nav a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    margin: 0 5px;
+}
+#menu-icon-nav a:hover{
+    background-color: white;
+    color: black;
+}
+
+/*************************/
+#sub-menu-section{
+    display: block;
+    font-size: var(--font-size-medium);
+}
+#sub-menu-section > ul{
+}
+#sub-menu-section li{
+    display: none;
+    text-align: center;
+}
+
+#sub-menu-section > ul > li[active]{
+    display: block;
+    padding: 40px 0;
+}
+#sub-menu-section .sub-menu-list{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 40px;
+}
+#sub-menu-section .sub-menu-list li{
+    display: block;
+    margin-bottom: 8px;
+    text-align: left;
+}
+#sub-menu-section .sub-menu-list li:first-child{
+    margin-bottom: 13px;
+    font-weight: bold;
+}
+#sub-menu-section .sub-menu-list a{
+    /*color: white;*/
+}
+#sub-menu-section .sub-menu-list a:hover{
+    opacity: 0.8;
+}
+
+#new-and-features-menu > div > ul{
+    margin-bottom: 30px;
+}

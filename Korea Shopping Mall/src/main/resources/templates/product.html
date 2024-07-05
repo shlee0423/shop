@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main-layout}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>상품 상세페이지</title>
+    <link rel="stylesheet" href="../static/css/product.css" th:href="@{/css/product.css}">
+    <script src="https://kit.fontawesome.com/e2ac94e0a6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<main layout:fragment="main">
+    <div class="product-information-container">
+        <section id="product-detail-section">
+            <ul class="main-product-img-list">
+                <li class="img-container">
+                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/a/4/FS2RSG2152F_OWH.jpg?v=12')"></div>
+                </li>
+                <li class="img-container">
+                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/b/4/FS2RSG2152F_OWH.jpg?v=12')"></div>
+                </li>
+                <li class="img-container">
+                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/c/4/FS2RSG2152F_OWH.jpg?v=12')"></div>
+                </li>
+                <li class="img-container">
+                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/d/4/FS2RSG2152F_OWH.jpg?v=12')"></div>
+                </li>
+                <li class="img-container">
+                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/e/4/FS2RSG2152F_OWH.jpg?v=12')"></div>
+                </li>
+                <li class="img-container">
+                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/f/4/FS2RSG2152F_OWH.jpg?v=12')"></div>
+                </li>
+                <li class="img-container">
+                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/g/4/FS2RSG2152F_OWH.jpg?v=12')"></div>
+                </li>
+                <li class="img-container">
+                    <div class="product-img" style="background-image: url('https://filacdn.styleship.com/filaproduct2/data/productimages/h/4/FS2RSG2152F_OWH.jpg?v=12')"></div>
+                </li>
+            </ul>
+
+            <div class="product-model-img-carousel">
+                <h3>모델컷</h3>
+                <div class="product-model-img-container">
+                    <figure class="sub-product-img">
+                        <img src="https://filacdn.styleship.com/filacontent2/data/filastyle/1100FS2RSG2152FOWH_3_1.jpg" alt="">
+                        <figcaption>
+                            키 175cm / 착용 사이즈 S <br>
+                            모델 착용 이미지보다 제품컷 이미지의 컬러가 정확합니다.
+                        </figcaption>
+                    </figure>
+                    <div class="product-model-img-select-btns">
+                        <button class="sub-product-img" style="background-image: url('https://filacdn.styleship.com/filacontent2/data/filastyle/1100FS2RSG2152FOWH_3_1.jpg')">
+                        </button>
+                        <button class="sub-product-img" style="background-image: url('https://filacdn.styleship.com/filacontent2/data/filastyle/1100FS2RSG2152FOWH_3_2.jpg')">
+                        </button>
+                        <button class="sub-product-img" style="background-image: url('https://filacdn.styleship.com/filacontent2/data/filastyle/1100FS2RSG2152FOWH_3_3.jpg')">
+                        </button>
+                        <button class="sub-product-img" style="background-image: url('https://filacdn.styleship.com/filacontent2/data/filastyle/1100FS2RSG2152FOWH_3_4.jpg')">
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="fit-guide">
+                <h2>핏 가이드</h2>
+                <div class="fit-box-container">
+                    <div class="slim">
+                        <b>SLIM</b>
+                        <span>부담스럽지 않게<br> 날씬해 보이는 효과를 주는 핏</span>
+                    </div>
+                    <div class="regular">
+                        <b>REGULAR</b>
+                        <span>가장 기본적이고 깔끔한,<br> 조금 여유있는 실루엣의 핏</span>
+                    </div>
+                    <div class="comfort">
+                        <b>COMFORT</b>
+                        <span>편안하고 루즈한 <br> 실루엣의 핏</span>
+                    </div>
+                    <div class="over">
+                        <b>OVER</b>
+                        <span>자연스러운 스트릿무드의 <br> 전체적으로 넉넉한 핏</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <aside id="product-info-aside">
+            <section class="product-info-section">
+                <a href="#" class="share-btn"><i class="fa-solid fa-share-nodes"></i></a>
+                <ul class="category" th:text="${product.tag}">
+                    <li>여성</li>
+                    <li>레귤러핏</li>
+                    <li>라이프스타일</li>
+                </ul>
+                <h1 th:text="${product.name}">면혼방 링거 반팔티</h1>
+                <span class="price" th:text="|${#numbers.formatInteger(product.price, 3, 'COMMA')}원|">35,000원</span>
+                <p class="product-summary" th:text="${product.describe}">
+                    면폴리 혼방 소재의 터치감이 소프트하며 세탁 후 형태 변형이 적습니다. <br><br>
+                    편안한 착용감으로 베이직한 스타일의 데일리웨어로 활용도가 높은 제품입니다. <br><br>
+                    라이프스타일 라인과 착장이 용이하며 다양한 연출로 제안 가능한 상품입니다. <br><br><br>
+                </p><br>
+
+                <span class="product-information product-material" th:text="${product.material}">제품소재 : 겉감 : 면 75% 폴리에스터 25% 배색1 : 면 71% 폴리에스터 29%</span>
+                <span class="product-information product-code">상품코드 : 1100FS2RSG2152FRED</span> <br>
+                <a href="#" class="product-information-btn">상품 정보 고시</a>
+            </section>
+
+            <section class="product-select-section">
+                <form>
+                    <div class="select-buttons colors">
+                        <b>컬러</b>
+                        <th:block th:each="color: ${product.colors.split(',')}">
+                            <button type="button" class="red" th:class="${color}" th:text="${color}">RED</button>
+                        </th:block>
+                    </div>
+                    <div class="select-buttons sizes">
+                        <b>사이즈</b>
+                        <th:block th:each="size: ${product.sizes.split(',')}">
+                            <button type="button" th:text="${size}">085(XS)</button>
+                        </th:block>
+                    </div>
+
+                    <label class="amount-label">
+                        <button type="button">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <input type="number" min="1" max="9" value="1">
+                        <button type="button">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </label>
+
+                    <div class="price">
+                        <strong>주문금액</strong>
+                        <strong th:text="|${#numbers.formatInteger(product.price, 3, 'COMMA')}원|">35,000원</strong>
+                    </div>
+
+                    <button id="buy-btn">바로 구매하기</button>
+
+                    <div class="product-additional-btns">
+                        <button type="button" id="heart-btn"><i class="fa-regular fa-heart"></i></button>
+                        <button type="button" id="cart-btn">카트에 담기</button>
+                    </div>
+                </form>
+
+                <a href="#" class="product-review">
+                    <h4>상품리뷰</h4>
+                    <span class="count">3</span>
+                    <i class="fa-solid fa-plus"></i>
+                </a>
+            </section>
+        </aside>
+    </div>
+</main>
+</body>
+</html>

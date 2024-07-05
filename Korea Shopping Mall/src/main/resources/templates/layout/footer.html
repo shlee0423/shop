@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>FOOTER</title>
+</head>
+<body>
+<footer th:fragment="footer">
+    <section id="information-section">
+        <img src="../../static/images/Fila_logo_PNG5.png" th:src="@{/images/Fila_logo_PNG5.png}" alt="">
+        <ul>
+            <li><a href="#">매장안내</a></li>
+            <li><a href="#">공지사항</a></li>
+            <li><a href="#">FILA MEMBERSHIP</a></li>
+            <li><a href="#">단체 판매</a></li>
+            <li><a href="#">대리점 개설문의</a></li>
+        </ul>
+        <p>
+            대구 중구 반월당 코리아아이티아카데미     개발자 : 이승훈 <br>
+            사업자등록번호 : 000-00-00000 <br>
+            개인정보 관리책임자 : 없어요 <br>
+            <br>
+            본 사이트는 테스트로 만든 겁니다 가짜에요
+        </p>
+    </section>
+    <div>
+        <section id="sns-icon-section">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        </section>
+        <section id="developer-information-section">
+            <button type="button">개발자에게 문의</button>
+            <div>
+                <span>1234-5555</span>
+                <span>fnvit@naver.com</span>
+            </div>
+            <span>평일 월 - 금 14 - 24시 (공휴일 제외)</span>
+        </section>
+    </div>
+</footer>
+</body>
+</html>

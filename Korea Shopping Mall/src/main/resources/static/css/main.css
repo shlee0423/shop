@@ -1,0 +1,138 @@
+@import "../css/public/public.css";
+
+
+/****************************/
+
+
+/******************************************/
+
+main{
+    margin-top: 136px;
+}
+#main-top-section{
+
+}
+.embla{
+    overflow: hidden;
+}
+.embla__container{
+    display: flex;
+}
+.embla__slide{
+    flex: 0 0 80%;
+}
+/*
+    fill: 비율 무시. 가로 세로를 크기에 맞게 꽉채움
+    contain: 지정한 크기에 맞게 비율 유지한채 채울수 있는 만큼 꽉채움
+    cover: 비율 유지한 채 가로와 세로가 꽉 찰때까지 늘림
+    none: 원본 크기 상관없이 가운데 정렬
+    scale-down: 원본보다 작아지며 contain 과 비슷하게 됨
+*/
+
+#main-top-section > video{
+    width: 100%;
+    display: block;
+    object-fit: fill;
+}
+
+/*******************************/
+#main-popular-items-section{
+    margin: 50px 0;
+    padding: var(--main-padding-left-right);
+}
+.popular-items-select-btn-div > button{
+    padding: 5px 30px;
+    margin-bottom: 20px;
+    margin-right: 4px;
+    font-size: var(--font-size-large);
+    border: 2px solid black;
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+.popular-items-select-btn-div > button:hover{
+    background-color: black;
+    color: white;
+}
+
+.popular-item-container{
+
+}
+
+.popular-item-container > .item{
+    margin: 0 5px;
+    display: inline-block;
+    width: 300px;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.popular-item-container > .item:hover{
+    border-color: black;
+}
+.popular-item-container > .item:hover .price{
+    transform: translateY(-5px);
+}
+.popular-item-container > .item:first-child{
+    margin-left: unset;
+}
+.popular-item-container > .item > .item-img{
+    position: relative;
+    width: 100%;
+    height: 280px;
+    background-position: center;
+    background-size: cover;
+}
+.popular-item-container > .item i{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: orangered;
+    cursor: pointer;
+    font-size: var(--font-size-x-large);
+}
+.popular-item-container > .item .price{
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    background-color: white;
+    padding: 2px 6px;
+    transition-duration: 0.5s;
+}
+.popular-item-container > .item > h4{
+    margin: 4px 0;
+    padding: 0 2px;
+    font-size: var(--font-size-large);
+    font-weight: normal;
+}
+.popular-item-container > .item > .category{
+    display: block;
+    margin: 4px 0 10px 0;
+    padding: 0 2px;
+    font-size: var(--font-size-small);
+    color: rgba(0,0,0,0.6);
+}
+
+/******************************************************/
+#main-plus-life-section{
+    padding: var(--main-padding-left-right);
+}
+.plus-life-container{
+    display: grid;
+    height: 1500px;
+    cursor: pointer;
+    grid-template-columns: 33% 33% 33%;
+}
+.plus-life-container .item{
+    margin: 20px 20px;
+    background-position: center;
+    background-size: cover;
+}
+.plus-life-container .item:first-child{
+    margin-left: unset;
+}
+.plus-life-container .item:nth-child(4){
+    margin-left: unset;
+}
+
+

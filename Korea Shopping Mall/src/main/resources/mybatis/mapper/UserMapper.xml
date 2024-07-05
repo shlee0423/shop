@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.korea.mapper.UserMapper">
+
+
+    <select id="selectUserById" resultType="UserDTO">
+        SELECT * FROM `user` WHERE `id` = #{id}
+    </select>
+
+    <select id="selectUserByCi" resultType="UserDTO">
+        SELECT * FROM `user` WHERE `ci` = #{ci}
+    </select>
+
+
+    <insert id="insert_user">
+        INSERT INTO `user` VALUES
+        (#{id},#{ci}, #{password}, #{email}, #{phone}, #{name}, #{nickName}, #{profileImg.data})
+    </insert>
+
+
+    <select id="selectSocialUserById" resultType="SocialUserDTO">
+        SELECT * FROM `social_user` WHERE `id` = #{id}
+    </select>
+
+    <insert id="insert_socialUser">
+        INSERT INTO `social_user` VALUES (#{id},#{ci}, #{name}, #{email}, #{nickName}, #{profileImageUrl})
+    </insert>
+
+
+</mapper>
