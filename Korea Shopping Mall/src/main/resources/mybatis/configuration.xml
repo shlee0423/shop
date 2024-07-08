@@ -18,6 +18,7 @@
         <typeAlias type="com.korea.dto.user.SocialUserDTO" alias="SocialUserDTO" />
 
         <typeAlias type="com.korea.dto.ProductDTO" alias="ProductDTO" />
+        <typeAlias type="com.korea.dto.CategoryDTO" alias="CategoryDTO" />
 
         <typeAlias type="com.korea.dto.customer_service.OneOnOneDTO" alias="OneOnOneDTO" />
         <typeAlias type="com.korea.dto.customer_service.OneOnOneAnswerDTO" alias="OneOnOneAnswerDTO" />

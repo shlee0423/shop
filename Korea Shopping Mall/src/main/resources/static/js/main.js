@@ -1,16 +1,21 @@
-const category = document.querySelectorAll('#main-menu-nav > ul > li');
-const subcategory = document.querySelectorAll('#sub-menu-section > ul > li');
-const subsection = document.getElementById('sub-menu-section');
+const mainMenuLies = document.querySelectorAll('#main-menu-nav li');
+const subMenuLies = document.querySelectorAll('#sub-menu-section > ul > li');
+const header = document.querySelector('header');
 
 
-for (let i = 0; i<category.length; i++){
-    category[i].addEventListener('mouseover', () => {
-        subcategory[i].toggleAttribute('active', true);
-    });
-    category[i].addEventListener('mouseout', () => {
-        subcategory[i].toggleAttribute('active', false);
+for (let i = 0; i<mainMenuLies.length; i++){
+    mainMenuLies[i].addEventListener('mouseover', () => {
+        subMenuLies.forEach(subMenuLi => {
+            subMenuLi.toggleAttribute('active', false);
+        })
+        subMenuLies[i].toggleAttribute('active', true);
     });
 }
+header.addEventListener('mouseleave', () => {
+    subMenuLies.forEach(subMenuLi =>{
+        subMenuLi.toggleAttribute('active', false);
+    })
+})
 
 
 

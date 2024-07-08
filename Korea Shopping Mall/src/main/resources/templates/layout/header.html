@@ -30,9 +30,9 @@
         <nav id="main-menu-nav">
             <ul>
                 <li>New & Featured</li>
-                <li>Men</li>
-                <li>Women</li>
-                <li>Kids</li>
+                <li th:each="category: ${categories}" th:text="${category.name}">
+                    Men
+                </li>
                 <li>Sale</li>
             </ul>
         </nav>
@@ -75,105 +75,88 @@
                     <li>Kids</li>
                 </ul>
             </li>
-            <li  id="men-menu">
+            <li  id="men-menu" th:each="category1: ${categories}">
                 <ul class="sub-menu-list">
                     <li><a href="#">New & Featured</a></li>
                     <li><a href="#">신제품 전체</a></li>
                     <li><a href="#">베스트셀러</a></li>
                 </ul>
-                <ul class="sub-menu-list">
-                    <li><a href="#">신발</a></li>
-                    <li><a href="#">라이프스타일</a></li>
-                    <li><a href="#">축구</a></li>
-                    <li><a href="#">러닝</a></li>
-                    <li><a href="#">테니스</a></li>
-                    <li><a href="#">골프</a></li>
-                    <li><a href="#">샌들 & 슬리퍼</a></li>
-                    <li><a href="#">트레이닝 & 짐</a></li>
-                </ul>
-                <ul class="sub-menu-list">
-                    <li><a href="#">의류</a></li>
-                    <li><a href="#">민소매 & 탱크 탑</a></li>
-                    <li><a href="#">반팔 티셔츠</a></li>
-                    <li><a href="#">ACG</a></li>
-                    <li><a href="#">러닝</a></li>
-                    <li><a href="#">탑 & 티셔츠</a></li>
-                </ul>
-                <ul class="sub-menu-list">
-                    <li><a href="#">용품</a></li>
-                    <li><a href="#">모자 & 헤드밴드</a></li>
-                    <li><a href="#">축구</a></li>
-                    <li><a href="#">가방</a></li>
-                    <li><a href="#">장갑</a></li>
-                    <li><a href="#">농구</a></li>
+                <ul class="sub-menu-list" th:each="category2: ${category1.children}">
+
+                    <li>
+                        <a href="#" th:href="@{/product(category=${category2.no})}" th:text="${category2.name}">신발</a>
+                    </li>
+                    <li th:each="category3: ${category2.children}">
+                        <a href="#" th:href="@{/product(category=${category3.no})}" th:text="${category3.name}">라이프스타일</a>
+                    </li>
                 </ul>
             </li>
-            <li  id="women-menu">
-                <ul class="sub-menu-list">
-                    <li><a href="#">New & Featured</a></li>
-                    <li><a href="#">신제품 전체</a></li>
-                    <li><a href="#">베스트셀러</a></li>
-                </ul>
-                <ul class="sub-menu-list">
-                    <li><a href="#">신발</a></li>
-                    <li><a href="#">라이프스타일</a></li>
-                    <li><a href="#">축구</a></li>
-                    <li><a href="#">러닝</a></li>
-                    <li><a href="#">테니스</a></li>
-                    <li><a href="#">골프</a></li>
-                    <li><a href="#">샌들 & 슬리퍼</a></li>
-                    <li><a href="#">트레이닝 & 짐</a></li>
-                </ul>
-                <ul class="sub-menu-list">
-                    <li><a href="#">의류</a></li>
-                    <li><a href="#">민소매 & 탱크 탑</a></li>
-                    <li><a href="#">반팔 티셔츠</a></li>
-                    <li><a href="#">ACG</a></li>
-                    <li><a href="#">러닝</a></li>
-                    <li><a href="#">탑 & 티셔츠</a></li>
-                </ul>
-                <ul class="sub-menu-list">
-                    <li><a href="#">용품</a></li>
-                    <li><a href="#">모자 & 헤드밴드</a></li>
-                    <li><a href="#">축구</a></li>
-                    <li><a href="#">가방</a></li>
-                    <li><a href="#">장갑</a></li>
-                    <li><a href="#">농구</a></li>
-                </ul>
-            </li>
-            <li id="kids-menu">
-                <ul class="sub-menu-list">
-                    <li><a href="#">New & Featured</a></li>
-                    <li><a href="#">신제품 전체</a></li>
-                    <li><a href="#">베스트셀러</a></li>
-                </ul>
-                <ul class="sub-menu-list">
-                    <li><a href="#">신발</a></li>
-                    <li><a href="#">라이프스타일</a></li>
-                    <li><a href="#">축구</a></li>
-                    <li><a href="#">러닝</a></li>
-                    <li><a href="#">테니스</a></li>
-                    <li><a href="#">골프</a></li>
-                    <li><a href="#">샌들 & 슬리퍼</a></li>
-                    <li><a href="#">트레이닝 & 짐</a></li>
-                </ul>
-                <ul class="sub-menu-list">
-                    <li><a href="#">의류</a></li>
-                    <li><a href="#">민소매 & 탱크 탑</a></li>
-                    <li><a href="#">반팔 티셔츠</a></li>
-                    <li><a href="#">ACG</a></li>
-                    <li><a href="#">러닝</a></li>
-                    <li><a href="#">탑 & 티셔츠</a></li>
-                </ul>
-                <ul class="sub-menu-list">
-                    <li><a href="#">용품</a></li>
-                    <li><a href="#">모자 & 헤드밴드</a></li>
-                    <li><a href="#">축구</a></li>
-                    <li><a href="#">가방</a></li>
-                    <li><a href="#">장갑</a></li>
-                    <li><a href="#">농구</a></li>
-                </ul>
-            </li>
+<!--            <li  id="women-menu">-->
+<!--                <ul class="sub-menu-list">-->
+<!--                    <li><a href="#">New & Featured</a></li>-->
+<!--                    <li><a href="#">신제품 전체</a></li>-->
+<!--                    <li><a href="#">베스트셀러</a></li>-->
+<!--                </ul>-->
+<!--                <ul class="sub-menu-list">-->
+<!--                    <li><a href="#">신발</a></li>-->
+<!--                    <li><a href="#">라이프스타일</a></li>-->
+<!--                    <li><a href="#">축구</a></li>-->
+<!--                    <li><a href="#">러닝</a></li>-->
+<!--                    <li><a href="#">테니스</a></li>-->
+<!--                    <li><a href="#">골프</a></li>-->
+<!--                    <li><a href="#">샌들 & 슬리퍼</a></li>-->
+<!--                    <li><a href="#">트레이닝 & 짐</a></li>-->
+<!--                </ul>-->
+<!--                <ul class="sub-menu-list">-->
+<!--                    <li><a href="#">의류</a></li>-->
+<!--                    <li><a href="#">민소매 & 탱크 탑</a></li>-->
+<!--                    <li><a href="#">반팔 티셔츠</a></li>-->
+<!--                    <li><a href="#">ACG</a></li>-->
+<!--                    <li><a href="#">러닝</a></li>-->
+<!--                    <li><a href="#">탑 & 티셔츠</a></li>-->
+<!--                </ul>-->
+<!--                <ul class="sub-menu-list">-->
+<!--                    <li><a href="#">용품</a></li>-->
+<!--                    <li><a href="#">모자 & 헤드밴드</a></li>-->
+<!--                    <li><a href="#">축구</a></li>-->
+<!--                    <li><a href="#">가방</a></li>-->
+<!--                    <li><a href="#">장갑</a></li>-->
+<!--                    <li><a href="#">농구</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li id="kids-menu">-->
+<!--                <ul class="sub-menu-list">-->
+<!--                    <li><a href="#">New & Featured</a></li>-->
+<!--                    <li><a href="#">신제품 전체</a></li>-->
+<!--                    <li><a href="#">베스트셀러</a></li>-->
+<!--                </ul>-->
+<!--                <ul class="sub-menu-list">-->
+<!--                    <li><a href="#">신발</a></li>-->
+<!--                    <li><a href="#">라이프스타일</a></li>-->
+<!--                    <li><a href="#">축구</a></li>-->
+<!--                    <li><a href="#">러닝</a></li>-->
+<!--                    <li><a href="#">테니스</a></li>-->
+<!--                    <li><a href="#">골프</a></li>-->
+<!--                    <li><a href="#">샌들 & 슬리퍼</a></li>-->
+<!--                    <li><a href="#">트레이닝 & 짐</a></li>-->
+<!--                </ul>-->
+<!--                <ul class="sub-menu-list">-->
+<!--                    <li><a href="#">의류</a></li>-->
+<!--                    <li><a href="#">민소매 & 탱크 탑</a></li>-->
+<!--                    <li><a href="#">반팔 티셔츠</a></li>-->
+<!--                    <li><a href="#">ACG</a></li>-->
+<!--                    <li><a href="#">러닝</a></li>-->
+<!--                    <li><a href="#">탑 & 티셔츠</a></li>-->
+<!--                </ul>-->
+<!--                <ul class="sub-menu-list">-->
+<!--                    <li><a href="#">용품</a></li>-->
+<!--                    <li><a href="#">모자 & 헤드밴드</a></li>-->
+<!--                    <li><a href="#">축구</a></li>-->
+<!--                    <li><a href="#">가방</a></li>-->
+<!--                    <li><a href="#">장갑</a></li>-->
+<!--                    <li><a href="#">농구</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
             <li id="sale-menu">
                 <ul class="sub-menu-list">
                     <li><a href="#">New & Featured</a></li>

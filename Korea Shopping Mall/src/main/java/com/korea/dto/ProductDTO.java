@@ -9,6 +9,7 @@ import java.util.List;
 @ToString
 public class ProductDTO {
     private Integer no;
+    private CategoryDTO category;
     private String name;
     private Integer price;
     private String tag;

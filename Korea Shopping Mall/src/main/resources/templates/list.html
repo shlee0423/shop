@@ -17,8 +17,8 @@
 <main layout:fragment="main">
     <section class="filter-section">
         <nav>
-            <a>MEN</a>
-            <a>신발</a>
+            <a th:text="${category.name}">MEN</a>
+            <a th:text="${category.children[0].name}">신발</a>
         </nav>
 
         <div class="filter-container">
@@ -53,41 +53,14 @@
             <div>
                 <ul class="category-list">
                     <li active>
-                        <a href="#">전체</a>
+                        <a href="#" th:href="@{/product(category=${category.children[0].no})}">전체</a>
                         <span>182</span>
                     </li>
-                    <li>
-                        <a href="#">라이프스타일</a>
+                    <li th:each="category3: ${category.children[0].children}">
+                        <a href="#" th:href="@{/product(category=${category3.no})}" th:text="${category3.name}">라이프스타일</a>
                         <span>182</span>
                     </li>
-                    <li>
-                        <a href="#">헤리티지</a>
-                        <span>182</span>
-                    </li>
-                    <li>
-                        <a href="#">테니스</a>
-                        <span>182</span>
-                    </li>
-                    <li>
-                        <a href="#">러닝</a>
-                        <span>182</span>
-                    </li>
-                    <li>
-                        <a href="#">샌들/슬리퍼</a>
-                        <span>182</span>
-                    </li>
-                    <li>
-                        <a href="#">인터런</a>
-                        <span>182</span>
-                    </li>
-                    <li>
-                        <a href="#">레플리카</a>
-                        <span>182</span>
-                    </li>
-                    <li>
-                        <a href="#">에샤페</a>
-                        <span>182</span>
-                    </li>
+
                 </ul>
             </div>
 
@@ -156,7 +129,7 @@
                 <div class="item" th:each="product: ${products}">
                     <a th:href="|/product/${product.no}|" class="item-img" th:style="|background-image: url('data:image/*;base64, ${product.images[0].url}')|">
                     </a>
-                    <span class="category">Shoes</span>
+                    <span class="category" th:text="${product.category.name}">Shoes</span>
                     <h4>
                         <a th:href="|/product/${product.no}|"  th:text="${product.name}">
                         클라우드 폼 무브 라운저
@@ -165,14 +138,14 @@
                     <span class="price" th:text="|${#numbers.formatInteger(product.price,3,'COMMA')}원|">69,000원</span>
                     <i class="fa-regular fa-heart"></i>
                 </div>
-                <div class="item">
-                    <div class="item-img" style="background-image: url('https://assets.adidas.com/images/w_600,f_auto,q_auto/5ee89be58e27428fb20ebbe1f7fe7aa2_9366/Grey_ID6514_01_standard.jpg')">
-                    </div>
-                    <span class="category">Shoes</span>
-                    <h4>클라우드 폼 무브 라운저</h4>
-                    <span class="price">69,000원</span>
-                    <i class="fa-regular fa-heart"></i>
-                </div>
+<!--                <div class="item">-->
+<!--                    <div class="item-img" style="background-image: url('https://assets.adidas.com/images/w_600,f_auto,q_auto/5ee89be58e27428fb20ebbe1f7fe7aa2_9366/Grey_ID6514_01_standard.jpg')">-->
+<!--                    </div>-->
+<!--                    <span class="category">Shoes</span>-->
+<!--                    <h4>클라우드 폼 무브 라운저</h4>-->
+<!--                    <span class="price">69,000원</span>-->
+<!--                    <i class="fa-regular fa-heart"></i>-->
+<!--                </div>-->
 <!--                <div class="item">-->
 <!--                    <div class="item-img" style="background-image: url('https://assets.adidas.com/images/w_600,f_auto,q_auto/5ee89be58e27428fb20ebbe1f7fe7aa2_9366/Grey_ID6514_01_standard.jpg')">-->
 <!--                    </div>-->
