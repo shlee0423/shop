@@ -6,6 +6,7 @@ import com.korea.mapper.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -20,6 +21,24 @@ public class ProductService {
     public ProductDTO get_product_by_no(Integer productNo){
         return productMapper.selectProductByNo(productNo);
     }
+
+    // 상품들이 가지는 모든 색상 리스트를 가져오는 메서드
+    public List<String> get_product_colors(List<ProductDTO> products){
+        return products.parallelStream()
+                // 하나의 상품의 컬러 값을 , 로 구분해서 따로 나눈다.
+                .flatMap(product -> Arrays.stream(product.getColors().split(",")))
+                .map(color -> {
+                    // 만약 하나의 컬러 값이 White / Green / Green 식으로 되어 있다면 White만 가져감
+                    if(color.contains("/")){
+                        color = color.split("/")[0];
+                    }
+                    // 공백 제거. 띄어쓰기는 -로 변경. 대문자 변환.
+                    return color.trim().replaceAll(" ", "-").toUpperCase();
+                })
+                .distinct().toList();
+    }
+
+
 
     //**************************************************************/
     // 존재하는 모든 카테고리 조회(계층구조로)

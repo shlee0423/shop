@@ -1,6 +1,7 @@
 package com.korea.config;
 
 import com.korea.converter.ImageFileConverter;
+import com.korea.handler.CustomOAuth2SuccessHandler;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +27,7 @@ public class SecurityConfig{
         http.oauth2Login(config -> {
             config.loginPage("/user/login")
                     .defaultSuccessUrl("/main")
+                    .successHandler(new CustomOAuth2SuccessHandler())
                     .permitAll();
         });
 
@@ -38,8 +40,8 @@ public class SecurityConfig{
         http.logout(config -> {
             config.logoutUrl("/user/logout")
                     .logoutSuccessUrl("/user/login")
-                    .deleteCookies("JSESSIONID")
-                    .invalidateHttpSession(true)
+                    .deleteCookies("JSESSIONID") // Cookie 제거
+                    .invalidateHttpSession(true) // Session 초기화
                     .clearAuthentication(true)
                     .permitAll();
         });

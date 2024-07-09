@@ -46,15 +46,17 @@ public class CustomOAuth2DetailsService extends DefaultOAuth2UserService {
         UserDTO findUser = userMapper.selectUserByCi(socialUserDTO.getCi());
         // 해당 소셜 정보로 가입된 유저를 찾는다
         SocialUserDTO findSocialUser = userMapper.selectSocialUserById(socialUserDTO.getId());
-
+        // 해당 유저가 존재함
         if(Objects.nonNull(findUser)){
+            // 해당 유저가 이 소셜 로그인으로 로그인한 기록이 없는가? =>
+            // 기존 유저와 소셜 유저를 연결 시키면 된다! (Insert)
             if(Objects.isNull(findSocialUser)){
                 userMapper.insert_socialUser(socialUserDTO);
             }
             // 찾은 유저로 로그인 시키기
             return findUser;
         }
-
+        // 해당 유저가 존재하지 않음 => 먼저 회원부터 회원가입을 시켜야 함 ....
         return oAuth2User;
     }
 

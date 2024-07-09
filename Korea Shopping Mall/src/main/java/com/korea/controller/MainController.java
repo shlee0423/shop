@@ -16,7 +16,7 @@ public class MainController {
     @GetMapping("/main")
     public void get_main(Model model){
         List<CategoryDTO> categories = productService.get_categories();
-        System.out.println(categories.toString());
+//        System.out.println(categories.toString());
         model.addAttribute("categories", categories);
     }
 }

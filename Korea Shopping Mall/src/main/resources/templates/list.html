@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../public/public.css">
     <link rel="stylesheet" href="../static/css/list.css" th:href="@{/css/list.css}">
     <script src="https://kit.fontawesome.com/e2ac94e0a6.js" crossorigin="anonymous"></script>
+    <script src="../static/js/user/list.js" th:src="@{/js/user/list.js}" defer></script>
 
 </head>
 <body>
@@ -71,15 +72,9 @@
                     <!--                <i class="fa-solid fa-caret-down"></i>-->
                 </button>
                 <ul class="color-list">
-                    <li class="beige"></li>
-                    <li class="black"></li>
-                    <li class="red"></li>
-                    <li class="blue"></li>
-                    <li class="green"></li>
-                    <li class="gray"></li>
-                    <li class="yellow"></li>
-                    <li class="white"></li>
-                    <li class="purple"></li>
+                    <th:block th:each="color: ${colors}">
+                        <li class="beige" th:class="${color}"></li>
+                    </th:block>
                 </ul>
             </div>
             <div>

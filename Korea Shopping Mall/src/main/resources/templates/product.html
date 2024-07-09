@@ -10,6 +10,7 @@
     <title>상품 상세페이지</title>
     <link rel="stylesheet" href="../static/css/product.css" th:href="@{/css/product.css}">
     <script src="https://kit.fontawesome.com/e2ac94e0a6.js" crossorigin="anonymous"></script>
+    <script src="../static/js/product.js" th:src="@{/js/product.js}" defer></script>
 </head>
 <body>
 <main layout:fragment="main">
@@ -91,10 +92,10 @@
         <aside id="product-info-aside">
             <section class="product-info-section">
                 <a href="#" class="share-btn"><i class="fa-solid fa-share-nodes"></i></a>
-                <ul class="category" th:text="${product.tag}">
-                    <li>여성</li>
-                    <li>레귤러핏</li>
-                    <li>라이프스타일</li>
+                <ul class="category">
+                    <li th:each="tag: ${product.tag.split(' ')}" th:text="${tag}">여성</li>
+<!--                    <li>레귤러핏</li>-->
+<!--                    <li>라이프스타일</li>-->
                 </ul>
                 <h1 th:text="${product.name}">면혼방 링거 반팔티</h1>
                 <span class="price" th:text="|${#numbers.formatInteger(product.price, 3, 'COMMA')}원|">35,000원</span>
@@ -110,15 +111,18 @@
             </section>
 
             <section class="product-select-section">
-                <form>
+                <form id="order-form" th:action="@{/order/product}" method="post">
+                    <input type="hidden" name="product.no" th:value="${product.no}">
                     <div class="select-buttons colors">
                         <b>컬러</b>
-                        <th:block th:each="color: ${product.colors.split(',')}">
+                        <input type="hidden" name="color">
+                        <th:block th:each="color: ${colors}">
                             <button type="button" class="red" th:class="${color}" th:text="${color}">RED</button>
                         </th:block>
                     </div>
                     <div class="select-buttons sizes">
                         <b>사이즈</b>
+                        <input type="hidden" name="size">
                         <th:block th:each="size: ${product.sizes.split(',')}">
                             <button type="button" th:text="${size}">085(XS)</button>
                         </th:block>
@@ -128,7 +132,7 @@
                         <button type="button">
                             <i class="fa-solid fa-minus"></i>
                         </button>
-                        <input type="number" min="1" max="9" value="1">
+                        <input type="number" name="amount" min="1" max="9" value="1" step="1">
                         <button type="button">
                             <i class="fa-solid fa-plus"></i>
                         </button>

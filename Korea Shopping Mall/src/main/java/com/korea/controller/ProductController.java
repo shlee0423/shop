@@ -32,10 +32,13 @@ public class ProductController {
         CategoryDTO category = productService.get_category(categoryNo);
         // 해당 카테고리에 맞는 모든 상품의 리스트를 조회함
         List<ProductDTO> products = productService.get_products(categoryNo);
+        // 조회된 상품들의 컬러 값들만 따로 묶어서 가져감
+        List<String> colors = productService.get_product_colors(products);
 
         model.addAttribute("categories", categories);
         model.addAttribute("category", category);
         model.addAttribute("products", products);
+        model.addAttribute("colors", colors);
         return "list";
     }
 
@@ -46,7 +49,9 @@ public class ProductController {
             Model model
     ) {
         ProductDTO product = productService.get_product_by_no(productNo);
+        List<String> colors = productService.get_product_colors(List.of(product));
         model.addAttribute("product", product);
+        model.addAttribute("colors", colors);
         return "product";
     }
 }

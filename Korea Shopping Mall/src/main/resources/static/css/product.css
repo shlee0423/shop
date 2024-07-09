@@ -85,6 +85,9 @@
     /*overflow: hidden;*/
     /*text-overflow: ellipsis;*/
 }
+.product-select-section .select-buttons > button[selected]{
+    opacity: 0.3;
+}
 .amount-label{
     display: flex;
     justify-content: space-between;
