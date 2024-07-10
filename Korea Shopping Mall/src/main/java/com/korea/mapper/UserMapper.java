@@ -1,6 +1,7 @@
 package com.korea.mapper;
 
 import com.korea.dto.user.CartDTO;
+import com.korea.dto.user.OrderDTO;
 import com.korea.dto.user.SocialUserDTO;
 import com.korea.dto.user.UserDTO;
 import org.apache.ibatis.annotations.Insert;
@@ -36,6 +37,10 @@ public interface UserMapper {
             @Param("cartNo") Integer cartNo,
             @Param("amount") Integer amount); // 장바구니에 존재하는 상품의 수량 변경
 
-    void deleteCart(List<Integer> cartNumbers); // 해당 장바구니의 상품을 삭
+    void deleteCart(List<CartDTO> carts); // 해당 장바구니의 상품을 삭
+
+    /******************** 결제 ************************/
+    void insertOrder(OrderDTO order); // 주문 정보 등록
+    void insertOrderProducts(OrderDTO order); // 위 주문에 해당하는 상품 등록
 
 }

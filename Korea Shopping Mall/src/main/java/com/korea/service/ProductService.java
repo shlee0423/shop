@@ -2,6 +2,7 @@ package com.korea.service;
 
 import com.korea.dto.CategoryDTO;
 import com.korea.dto.ProductDTO;
+import com.korea.dto.user.CartDTO;
 import com.korea.mapper.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,17 @@ public class ProductService {
 
     public ProductDTO get_product_by_no(Integer productNo){
         return productMapper.selectProductByNo(productNo);
+    }
+
+    // 장바구니에 존재하는 상품들의 내용을 설정해주는 서비스
+    public void set_product_information_of_carts(List<CartDTO> carts){
+        carts.forEach(cart -> {
+            ProductDTO product = cart.getProduct();
+            ProductDTO findProduct = productMapper.selectProductByNo(product.getNo());
+            product.setPrice(findProduct.getPrice());
+            product.setImages(findProduct.getImages());
+            product.setCategory(findProduct.getCategory());
+        });
     }
 
     // 상품들이 가지는 모든 색상 리스트를 가져오는 메서드

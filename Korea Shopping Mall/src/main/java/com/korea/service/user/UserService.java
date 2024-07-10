@@ -1,6 +1,7 @@
 package com.korea.service.user;
 
 import com.korea.dto.user.CartDTO;
+import com.korea.dto.user.OrderDTO;
 import com.korea.dto.user.UserDTO;
 import com.korea.mapper.UserMapper;
 import lombok.extern.log4j.Log4j2;
@@ -130,8 +131,15 @@ public class UserService {
     }
 
     // 장바구니에 상품 제거하기
-    public void delete_cart(List<Integer> cartNumbers){
+    public void delete_cart(List<CartDTO> carts){
         // 장바구니에 현재 회원 설정
-        userMapper.deleteCart(cartNumbers);
+        userMapper.deleteCart(carts);
+    }
+
+    /************************ 결제 ***************************/
+    public void add_order(UserDTO user, OrderDTO order){
+        order.setUser(user); // 결제자 (주문자) 설정
+        userMapper.insertOrder(order); // 주문정보
+        userMapper.insertOrderProducts(order); // 주문 상품들
     }
 }

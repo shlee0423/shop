@@ -71,11 +71,24 @@
 
     <delete id="deleteCart">
         DELETE FROM cart WHERE
-        <foreach collection="list" item="cartNo" separator="AND">
-            no = #{cartNo}
+        <foreach collection="carts" item="cart" separator="OR">
+            no = #{cart.no}
         </foreach>
     </delete>
 
 
+    <insert id="insertOrder">
+        INSERT INTO order
+        VALUES
+        (#{id}, #{user.id}, #{title}, #{receiverName}, #{receiverPhone}, #{receiverPostcode},
+         #{receiverAddress}, #{memo}, #{impUid}, #{payMethod}, #{paidAmount}, #{paidAt})
+    </insert>
+
+    <insert id="insertOrderProducts">
+        INSERT INTO order_product VALUES
+        <foreach collection="products" item="product" separator=",">
+            (NULL, #{id}, #{product.no}, #{product.price}, #{product.size}, #{product.color}, #{product.amount})
+        </foreach>
+    </insert>
 
 </mapper>
