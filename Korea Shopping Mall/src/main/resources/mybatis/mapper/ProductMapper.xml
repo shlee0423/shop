@@ -32,6 +32,7 @@
     <select id="selectProductByNo" resultType="ProductDTO" resultMap="selectProductWithCategoryAndImageMap">
         SELECT
             P.`no` AS 'product_no',
+            P.name AS 'product_name,
             PI.`no` AS 'image_no',
             P.*, PI.*
         FROM `product` P

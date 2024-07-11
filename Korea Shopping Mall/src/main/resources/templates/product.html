@@ -111,8 +111,9 @@
             </section>
 
             <section class="product-select-section">
-                <form id="order-form" th:action="@{/order/product}" method="post">
+                <form id="order-form" th:action="@{/user/order}" method="post">
                     <input type="hidden" name="product.no" th:value="${product.no}">
+                    <input type="hidden" name="product.name" th:value="${product.name}">
                     <div class="select-buttons colors">
                         <b>컬러</b>
                         <input type="hidden" name="color">
